@@ -17,8 +17,9 @@ $(".app-btn").click(function () {
         },
         success: function (response) {
             if (response.status == "Success") {
+                $("#detail-app-id").html(response.appsdetail.id_app);
                 $("#detail-app-name").html(response.appsdetail.app_name);
-                $("#detail=app-developer").html(response.appsdetail.developer);
+                $("#detail-app-developer").html(response.appsdetail.developer);
                 $("#detail-app-price").html(response.appsdetail.price);
             } else {
                 console.log("sistem terkendala");
@@ -27,6 +28,7 @@ $(".app-btn").click(function () {
     });
 });
 
+// App list Delete
 $(".app-delete-btn").click(function () {
     var id_apps = $(this).attr('data-href');
     $.ajax({
@@ -45,6 +47,7 @@ $(".app-delete-btn").click(function () {
     });
 })
 
+// App list update view
 $(".app-update-btn").click(function () {
     var id_apps = $(this).attr('data-href');
     $.ajax({
@@ -66,6 +69,7 @@ $(".app-update-btn").click(function () {
     });
 })
 
+// App list add
 $(".publishapp-btn").click(function () {
     var app_name = $(".app-name").val(),
         developer_name = $(".developer-name").val(),
@@ -91,6 +95,8 @@ $(".publishapp-btn").click(function () {
         }
     });
 })
+
+// App List update
 $(".app-republish-btn").click(function () {
     var app_id = $(".update-app-id").val(), 
         app_name = $(".update-app-name").val(),
@@ -107,7 +113,6 @@ $(".app-republish-btn").click(function () {
             "app_price": app_price
         },
         success: function (response) {
-            console.log(response);
             if (response.status == "Success") {
                 location.reload();
             } else {
@@ -117,6 +122,7 @@ $(".app-republish-btn").click(function () {
     });
 });
 
+// Free Check if application become free
 $('#freecheck').click(function () {
    if ($(this).prop('checked') == true ) {
        $('.app-price').attr('disabled', true).val('Free');
@@ -125,4 +131,22 @@ $('#freecheck').click(function () {
    }
 });
 
-
+// Cart
+$('.btn-cart').click(function () { 
+    app_id = $('#detail-app-id').html();
+    
+    $.ajax({
+        method: 'post',
+        url: '/cart',
+        data: {
+            "app_id" : app_id,
+        },
+        success: function (response) {
+            if (response.status == "loginfirst") {
+                window.location = "/login";
+            } else {
+                console.log("sistem terkendala");
+            }
+        }
+    });
+});

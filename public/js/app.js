@@ -17904,8 +17904,6 @@ $.ajaxSetup({
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
 });
-$('.alert-view').detach(); // App List View
-
 $(".app-btn").click(function () {
   var id_apps = $(this).attr('data-href');
   $.ajax({
