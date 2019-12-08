@@ -26,6 +26,8 @@ Route::post('/payment', 'Ordercontroller@payment');
 
 Route::get('/appsdata', 'Home_controller@appsdata');
 
+// Api
 Route::post('/publishapp', 'Admin_controller@publishApp');
 Route::post('/deleteapp', 'Admin_controller@deleteApp');
 Route::post('/updateapp', 'Admin_controller@updateApp');
+Route::post('/cart', 'Home_controller@cart');
