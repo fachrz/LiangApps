@@ -11,22 +11,22 @@
   <img src="{{ asset('images/linelogo.png') }}" class="card-img-top" alt="...">
 </div>
   <div class="card-body">
-    <h5 class="card-title"><a href="#">{{$al->app_name}}</a></h5>
+    <h5 class="card-title app-btn" data-toggle="modal" data-target="#infomodal" data-href="{{ $al->id_app }}">{{$al->app_name}}</a></h5>
     <p class="card-text">{{$al->dev_name}}</p>
     @if($al->price == 0 && Session::get('status') != 'admins')
     <p>Gratis</p>
-    <button type="button" class="btn btn-success btn-block app-btn" data-href="{{ $al->id_app }}">Download</button>
+    <button type="button" class="btn btn-success btn-block">Download</button>
     @elseif($al->price == 0 && Session::get('status') == 'admins')
     <p>Gratis</p>
     <button type="button" class="btn btn-danger btn-block app-delete-btn" data-href="{{ $al->id_app }}">Delete</button>
     <button type="button" class="btn btn-warning btn-block app-update-btn" data-toggle="modal" data-target="#updatemodal" data-href="{{ $al->id_app }}">Update</button>
     @elseif($al->price != 0 && Session::get('status') == 'admins')
-    <p>Rp. {{$al->price}}</p>
+    <p>Rp. {{number_format($al->price, 2, ',', '.')}}</p>
     <button type="button" class="btn btn-danger btn-block app-delete-btn" data-href="{{ $al->id_app }}">Delete</button>
     <button type="button" class="btn btn-warning btn-block app-update-btn" data-toggle="modal" data-target="#updatemodal" data-href="{{ $al->id_app }}">Update</button>
     @else
-    <p>Rp. {{$al->price}}</p>
-    <button type="button" class="btn btn-danger btn-block app-btn" data-toggle="modal" data-target="#buymodal" data-href="{{ $al->id_app }}">Buy</button>
+    <p>Rp. {{number_format($al->price, 2, ',', '.')}}</p>
+    <button type="button" class="btn btn-danger btn-block app-btn" data-toggle="modal" data-target="#infomodal" data-href="{{ $al->id_app }}">Paid Apps</button>
     @endif
   </div>
 </div>
@@ -34,8 +34,8 @@
 </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="buymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- infomodal -->
+<div class="modal fade" id="infomodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -45,12 +45,14 @@
         </button>
       </div>
       <div class="modal-body">
+        <div id="detail-app-id" style="display: none;"></div>
         <h5 class="card-title"><a href="#" id="detail-app-name"></a></h5>
         <p class="card-text" id="detail-app-developer"></p>
         <p id="detail-app-price"></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-dismiss="modal" data-target="#paymentmethodmodal" >Mau bayar pake apa?</button>
+        <button type="button" class="btn btn-outline-danger btn-cart">Add to Cart</button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-dismiss="modal" data-target="#paymentmethodmodal" >Buy</button>
       </div>
     </div>
   </div>
