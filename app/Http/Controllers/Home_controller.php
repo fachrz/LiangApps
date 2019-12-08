@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\la_applications_model;
-use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class Home_controller extends Controller
 {
@@ -23,5 +24,14 @@ class Home_controller extends Controller
             'status' => 'Success'
         ]);
         
+    }
+    public function cart(Request $request){
+        $app_id = $request->app_id;
+
+        if (Session::get('status') != 'users') {
+            return response([
+                'status' => 'loginfirst'
+            ]);
+        }
     }
 }
