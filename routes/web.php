@@ -12,3 +12,20 @@
 */
 
 Route::get('/', 'Home_controller@index');
+Route::get('/login', 'Authcontroller@showLoginPage');
+Route::get('/register', 'Authcontroller@showRegisterPage');
+Route::post('/registerAction', 'Authcontroller@registerAction');
+Route::post('/loginAction', 'Authcontroller@loginAction');
+Route::get('/logout', 'Authcontroller@logout');
+
+Route::get('/admin', 'Authcontroller@adminLoginPage');
+Route::post('/adminLoginAction', 'Authcontroller@adminLoginAction');
+Route::get('/dashboard', 'Admin_controller@dashboard');
+
+Route::post('/payment', 'Ordercontroller@payment');
+
+Route::get('/appsdata', 'Home_controller@appsdata');
+
+Route::post('/publishapp', 'Admin_controller@publishApp');
+Route::post('/deleteapp', 'Admin_controller@deleteApp');
+Route::post('/updateapp', 'Admin_controller@updateApp');

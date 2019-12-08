@@ -1,1 +1,88 @@
 //
+
+@import "~bootstrap/scss/bootstrap.scss";
+
+$box-shadow : 11px 9px 53px -6px rgba(0,0,0,0.38);
+
+
+.liangcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    .appsection{
+        padding: 5px 0px;
+        margin: auto;
+        display: inline-block;
+    }
+    .appcard{
+        width: 160px; 
+        float: left !important;
+        margin: 0px 10px;  
+        box-shadow: $box-shadow;
+        border: none;
+    }
+    .card-body{
+        padding: 10px;
+    }
+    .card-title, .card-text{
+        margin: 0px;
+    }
+    .imageframe{
+        padding: 20px;
+    }
+    .appthumbnail{
+        height: 120px;
+    }   
+    
+}
+
+/* PeTik Login Section */
+.login-container{
+    margin: auto;
+    text-align: center;
+    margin-top: 70px;
+}
+.login-form{
+    max-width: 300px;
+    padding: 10px;
+    margin: auto;
+    border-radius: 6px;
+    text-align: left;
+    border: none !important;
+    box-shadow: 0 10px 40px -10px rgba(0,64,128,.2);
+}
+.login-container i{
+    font-size: 40px;
+}
+.login-container h1{
+    margin-bottom: 30px;
+}
+.register-section{
+    margin-top: 20px;
+}
+.register-section a{
+    color: #dc3545;
+}
+.register-section a:hover{
+    color: #dc3545
+}
+.alert-container{ 
+    max-width: 300px;
+    margin: 0px auto 0px;
+}
+
+/* Register Page */
+.register-form{
+    max-width: 600px;
+    padding: 10px;
+    margin: auto;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.admin-identifier{
+    border: 1px solid;
+    border-radius: 10px;
+}
+
