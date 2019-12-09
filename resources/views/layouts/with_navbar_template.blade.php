@@ -24,12 +24,21 @@
                     <button type="button" class="navlink btn btn-primary" data-toggle="modal" data-target="#AppInsertmodal">Publish Application</button>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/validation') }}">Validasi Pembayaran</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">{{ Session::get('adminname') }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/logout') }}">Logout</a>
                 </li>
                 @elseif (Session::get('status') == 'users')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/myorder') }}">My Order</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('/cart') }}" class="nav-link"><i class="fas fa-shopping-cart"></i>(<span id="howmanycart"></span>)</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">{{ Session::get('usersname') }}</a>
                 </li>
@@ -49,7 +58,7 @@
         </div>
     </nav>
 
-    <!-- Modal -->
+    <!-- appinsertmodal -->
 <div class="modal fade" id="AppInsertmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -88,6 +97,7 @@
 
     <!-- JavaScript Library -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://kit.fontawesome.com/eb8b44741d.js" crossorigin="anonymous"></script>
     @yield('script')
 
 </body>

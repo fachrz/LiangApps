@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class LaCartMigration extends Migration
+class TempdetailsOrderMigration extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class LaCartMigration extends Migration
      */
     public function up()
     {
-        Schema::create('la_cart', function (Blueprint $table) {
+        Schema::create('la_tempdetails_order', function (Blueprint $table) {
             $table->string('app_id', 50);
-            $table->string('email', 255);
+            $table->integer('id_temporder');
         });
     }
 

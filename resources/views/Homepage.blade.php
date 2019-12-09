@@ -3,7 +3,7 @@
 @section('title', 'HomePage')
 
 @section('content')
-<div class="liangcontainer">
+<div class="liangcontainer ">
 <div class="appsection clearfix">
 @foreach($applist as $al)
 <div class="card appcard">
@@ -51,7 +51,7 @@
         <p id="detail-app-price"></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-danger btn-cart">Add to Cart</button>
+        <button type="button" class="btn btn-outline-danger btn-cart" data-dismiss="modal">Add to Cart</button>
         <button type="button" class="btn btn-danger" data-toggle="modal" data-dismiss="modal" data-target="#paymentmethodmodal" >Buy</button>
       </div>
     </div>

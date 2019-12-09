@@ -14,6 +14,7 @@ $box-shadow : 11px 9px 53px -6px rgba(0,0,0,0.38);
         padding: 5px 0px;
         margin: auto;
         display: inline-block;
+        width: 722px;
     }
     .appcard{
         width: 160px; 
@@ -21,6 +22,7 @@ $box-shadow : 11px 9px 53px -6px rgba(0,0,0,0.38);
         margin: 0px 10px;  
         box-shadow: $box-shadow;
         border: none;
+        margin-top: 10px;
     }
     .card-body{
         padding: 10px;

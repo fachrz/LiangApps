@@ -30,4 +30,14 @@ Route::get('/appsdata', 'Home_controller@appsdata');
 Route::post('/publishapp', 'Admin_controller@publishApp');
 Route::post('/deleteapp', 'Admin_controller@deleteApp');
 Route::post('/updateapp', 'Admin_controller@updateApp');
-Route::post('/cart', 'Home_controller@cart');
+Route::post('/addcart', 'Home_controller@addcart');
+Route::get('/howmanycart', 'Home_controller@howmanycart');
+
+Route::get('/cart', 'Home_controller@cartlist');
+Route::get('/cartdelete/{id}', 'Home_controller@cartdelete');
+
+Route::get('/myorder', 'Ordercontroller@myorder');
+Route::get('/removeorder/{id}', 'Ordercontroller@removeOrder');
+
+Route::get('/validation', 'Admin_controller@validation');
+Route::post('/pvalidation', 'Admin_controller@pvalidation');

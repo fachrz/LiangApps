@@ -11370,6 +11370,7 @@ a.text-dark:focus {
   padding: 5px 0px;
   margin: auto;
   display: inline-block;
+  width: 722px;
 }
 
 .liangcontainer .appcard {
@@ -11378,6 +11379,7 @@ a.text-dark:focus {
   margin: 0px 10px;
   box-shadow: 11px 9px 53px -6px rgba(0, 0, 0, 0.38);
   border: none;
+  margin-top: 10px;
 }
 
 .liangcontainer .card-body {

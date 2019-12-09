@@ -14,9 +14,8 @@ class LaTemporderMigration extends Migration
     public function up()
     {
         Schema::create('la_temporder', function (Blueprint $table) {
-            $table->bigIncrements('id_order');
+            $table->bigIncrements('id_temporder');
             $table->string('email', 50);
-            $table->string('id_apps', 255);
             $table->timestamp('date_temporder');
             $table->string('payment_code', 13);
         });

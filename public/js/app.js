@@ -18021,21 +18021,39 @@ $('#freecheck').click(function () {
   } else {
     $('.app-price').attr('disabled', false).val('');
   }
-}); // Cart
+});
+
+function howmanycart() {
+  $.ajax({
+    method: 'get',
+    url: '/howmanycart',
+    success: function success(response) {
+      if (response.status == 'Success') {
+        var cart = response.howmany;
+        $('#howmanycart').html(cart);
+        console.log(response.mycart);
+      }
+    }
+  });
+}
+
+howmanycart(); // Cart
 
 $('.btn-cart').click(function () {
   app_id = $('#detail-app-id').html();
   $.ajax({
     method: 'post',
-    url: '/cart',
+    url: '/addcart',
     data: {
       "app_id": app_id
     },
     success: function success(response) {
       if (response.status == "loginfirst") {
         window.location = "/login";
-      } else {
-        console.log("sistem terkendala");
+      } else if (response.status == "Success") {
+        howmanycart();
+      } else if (response.status == 'incart') {
+        console.log('sudah dalam cart');
       }
     }
   });
